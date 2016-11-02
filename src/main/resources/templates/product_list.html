@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 15px;
+}
+</style>
+</head>
+<body layout:fragment="content">
+	<div class="row">
+		<h1>products</h1>
+		<a href="/" th:href="@{|/user/add|}"><input type="button" value="Make a Smoothie" /></a>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${products}">
+				<td th:text="${product.id}"></td>
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.qty}"></td>
+					<td th:text="${product.price}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

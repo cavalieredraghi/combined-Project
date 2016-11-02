@@ -1,5 +1,7 @@
 package org.elevenfifty.java301.beans;
 
+
+
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
@@ -12,59 +14,49 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "products")
 public class Product {
-	@Size (max=50)
+	@Size(max = 50)
 	private int qty;
-	
-	@Size (max=45)
+
+	@Size(max = 45)
 	private String name;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
-	
-	private BigDecimal price;
 
+	private BigDecimal price;
 
 	public int getQty() {
 		return qty;
 	}
 
-
 	public void setQty(int qty) {
 		this.qty = qty;
 	}
-
 
 	public String getName() {
 		return name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public BigDecimal getPrice() {
 		return price;
 	}
 
-
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -76,7 +68,6 @@ public class Product {
 		result = prime * result + qty;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -103,6 +94,7 @@ public class Product {
 			return false;
 		return true;
 	}
-	
 
+	
+	
 }
