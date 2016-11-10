@@ -20,14 +20,15 @@
 					<li class="active"><a href="#" th:href="@{/}">Home</a></li>
 					<li class="active"><a href="#" th:href="@{/product/list}">Smoothie
 							List</a></li>
-					<li class="active"><a href="#" th:href="@{/}">Custom
+					<li class="active"><a href="#" th:href="@{/product/add}">Custom
 							Smoothie</a></li>
+					<li class="active"><a href="#" th:href="@{/user/list}">Users</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right"
-					sec:authorize="isAuthenticated()">
-
-					<li><a href="/login">Login</a></li>
-				</ul>
+				<!-- experimenting with conditionals in a html thymeleaf setting. will be able to use this with security purposes. -->
+				<!-- <ul class="nav navbar-nav navbar-right">
+					<li><a href="/login" th:if="${} ==  ">Login</a></li>
+					<li><p th:unless="${active} == true "></p></li>
+				</ul> -->
 				<ul class="nav navbar-nav navbar-right"
 					sec:authorize="isAuthenticated()">
 					<li><a href="#" onclick="$('#logoutForm').submit();">Logout</a></li>

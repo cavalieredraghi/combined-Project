@@ -42,7 +42,11 @@ public class UserController {
 		return "login";
 	}
 
-	
+	@GetMapping("/user/list")
+	public String userList(Model model) {
+		model.addAttribute("users", userRepo.findAll());
+		return "user_list";
+	}
 
 	@GetMapping("/user/{id}")
 	public String user(Model model, @PathVariable(name = "id") int id) {

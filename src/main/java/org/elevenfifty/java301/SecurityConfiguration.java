@@ -22,7 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
         .authorizeRequests().antMatchers("/console/**").permitAll()
         .and()
-        .authorizeRequests().antMatchers("/user/**").authenticated().anyRequest().permitAll()
+        .authorizeRequests().antMatchers("/").authenticated().anyRequest().permitAll()
         .and()
         .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
         .and()
