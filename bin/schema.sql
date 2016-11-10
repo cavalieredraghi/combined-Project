@@ -32,16 +32,17 @@ CREATE TABLE IF NOT EXISTS java301.user_properties (
   prop_value VARCHAR(255) NOT NULL,
   PRIMARY KEY (id));
   
-  CREATE TABLE IF NOT EXISTS java301.ingredients(
+    CREATE TABLE IF NOT EXISTS java301.products(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,
   qty INT, 
   price VARCHAR(10) NOT NULL,
   PRIMARY KEY (id));
-  
+
   CREATE TABLE IF NOT EXISTS java301.product_images(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  product_id INT UNSIGNED NOT NULL,
+  _id INT UNSIGNED NOT NULL,
   content_type VARCHAR(45) NOT NULL,
   image BLOB NOT NULL,
   PRIMARY KEY (id));
+  

@@ -17,6 +17,19 @@ table, th, td {
 	<div class="row">
 		<h1>products</h1>
 		<a href="/" th:href="@{|/product/add|}"><input type="button" value="Make a Smoothie" /></a>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
 		<h2>ingredients</h2>
 		<table>
 			<thead>
@@ -28,11 +41,11 @@ table, th, td {
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="ingredient : ${ingredients}">
-				<td th:text="${ingredient.id}"></td>
-					<td th:text="${ingredient.name}"></td>
-					<td th:text="${ingredient.qty}"></td>
-					<td th:text="${ingredient.price}"></td>
+				<tr th:each="product : ${products}">
+				<td th:text="${product.id}"></td>
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.qty}"></td>
+					<td th:text="${product.price}"></td>
 				</tr>
 			</tbody>
 		</table>

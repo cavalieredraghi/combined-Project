@@ -115,7 +115,7 @@ public class ProductController {
 	public String productAddSave(@ModelAttribute @Valid Product product, Model model ) {
 
 		proRepo.save(product);
-		return "redirect:/user/" + product.getId();
+		return "redirect:/product/" + product.getId();
 	}
 	
 }

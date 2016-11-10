@@ -22,11 +22,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
         .authorizeRequests().antMatchers("/console/**").permitAll()
         .and()
-//        .authorizeRequests().antMatchers("/", "/user/**").authenticated().anyRequest().permitAll()
-//        .and()
-//        .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
-//        .and()
-//        
+        .authorizeRequests().antMatchers("/user/**").authenticated().anyRequest().permitAll()
+        .and()
+        .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
+        .and()
+        
         .logout().logoutSuccessUrl("/login?logout")
         .and()
         .csrf().disable()

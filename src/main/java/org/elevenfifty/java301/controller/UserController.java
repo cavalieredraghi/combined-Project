@@ -128,4 +128,17 @@ public class UserController {
 		userRepo.save(user);
 		return "redirect:/user/" + user.getId();
 	}
+	@GetMapping ("/user/new")
+	public String userNew(Model model, User user) {
+		User u = new User();
+		model.addAttribute(user);
+		return "user_new";
+	}
+	
+	@PostMapping("/user/new")
+	public String userNewSave(@ModelAttribute @Valid User user, Model model ) {
+
+		userRepo.save(user);
+		return "redirect:/login";
+	}
 }

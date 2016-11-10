@@ -27,7 +27,12 @@ table, th, td {
 				</tr>
 			</thead>
 			<tbody>
-				
+				<tr th:each="ingredient : ${ingredients}">
+				<td th:text="${ingredient.id}"></td>
+					<td th:text="${ingredient.name}"></td>
+					<td th:text="${ingredient.qty}"></td>
+					<td th:text="${ingredient.price}"></td>
+				</tr>
 			</tbody>
 		</table>
 		<h2>ingredients</h2>
@@ -41,11 +46,11 @@ table, th, td {
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="product : ${products}">
-				<td th:text="${product.id}"></td>
-					<td th:text="${product.name}"></td>
-					<td th:text="${product.qty}"></td>
-					<td th:text="${product.price}"></td>
+				<tr th:each="ingredient : ${ingredients}">
+				<td th:text="${ingredient.id}"></td>
+					<td th:text="${ingredient.name}"></td>
+					<td th:text="${ingredient.qty}"></td>
+					<td th:text="${ingredient.price}"></td>
 				</tr>
 			</tbody>
 		</table>
