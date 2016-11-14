@@ -6,10 +6,10 @@ import javax.validation.Valid;
 
 import org.elevenfifty.java301.beans.Product;
 import org.elevenfifty.java301.beans.ProductImage;
-import org.elevenfifty.java301.beans.User;
-import org.elevenfifty.java301.beans.UserImage;
 import org.elevenfifty.java301.repository.ProductImageRepository;
 import org.elevenfifty.java301.repository.ProductRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Controller
 public class ProductController {
@@ -117,5 +115,11 @@ public class ProductController {
 		proRepo.save(product);
 		return "redirect:/product/" + product.getId();
 	}
-	
+	@PostMapping("/product/list")
+	public String productDelete( Model model, @RequestParam(name = "productId") int productId) {
+		
+		proRepo.delete(proRepo.findOne(productId));
+		return "redirect:/product/list";
+	}
 }
+

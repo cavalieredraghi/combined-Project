@@ -151,6 +151,6 @@ public class UserController {
 	public String userDelete( Model model, @RequestParam(name = "userId") int userId) {
 		
 		userRepo.delete(userRepo.findOne(userId));
-		return "user_list";
+		return "redirect:/user/list";
 	}
 }

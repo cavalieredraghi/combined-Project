@@ -22,12 +22,17 @@ table, th, td {
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>Quantity</th>
+					<th>ingredients</th>
 					<th>Price</th>
 				</tr>
 			</thead>
 			<tbody>
-				
+				<tr th:each="smoothie : ${smoothies}">
+				<td th:text="${smoothie.id}"></td>
+					<td th:text="${smoothie.name}"></td>
+					<td th:text="${smoothie.ing}"></td>
+					<td th:text="${smoothie.price}"></td>
+				</tr>
 			</tbody>
 		</table>
 		<h2>ingredients</h2>
