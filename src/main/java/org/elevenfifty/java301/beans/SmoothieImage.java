@@ -16,6 +16,12 @@ public class SmoothieImage {
 	private int id;
 
 	private int smoothieId;
+	public int getSmoothieId() {
+		return smoothieId;
+	}
+	public void setSmoothieId(int smoothieId) {
+		this.smoothieId = smoothieId;
+	}
 	private String contentType;
 	private byte[] image;
 	public int getId() {
@@ -24,12 +30,8 @@ public class SmoothieImage {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getSmoothieId() {
-		return smoothieId;
-	}
-	public void setSmoothieId(int smoothieId) {
-		this.smoothieId = smoothieId;
-	}
+
+
 	public String getContentType() {
 		return contentType;
 	}

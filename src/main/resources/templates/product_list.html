@@ -16,21 +16,20 @@ table, th, td {
 <body layout:fragment="content">
 	<div class="row">
 		<h1>products</h1>
-		<a href="/" th:href="@{|/product/add|}"><input type="button" value="Make a Smoothie" /></a>
+		<a href="/" th:href="@{|/smoothie/add|}"><input type="button"
+			value="Place Order" /></a>
 		<table>
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>Name</th>
-					<th>ingredients</th>
 					<th>Price</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="smoothie : ${smoothies}">
-				<td th:text="${smoothie.id}"></td>
+					<td th:text="${smoothie.id}"></td>
 					<td th:text="${smoothie.name}"></td>
-					<td th:text="${smoothie.ing}"></td>
 					<td th:text="${smoothie.price}"></td>
 				</tr>
 			</tbody>
@@ -47,7 +46,7 @@ table, th, td {
 			</thead>
 			<tbody>
 				<tr th:each="product : ${products}">
-				<td th:text="${product.id}"></td>
+					<td th:text="${product.id}"></td>
 					<td th:text="${product.name}"></td>
 					<td th:text="${product.qty}"></td>
 					<td th:text="${product.price}"></td>

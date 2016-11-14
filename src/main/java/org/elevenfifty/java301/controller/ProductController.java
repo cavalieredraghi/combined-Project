@@ -6,8 +6,12 @@ import javax.validation.Valid;
 
 import org.elevenfifty.java301.beans.Product;
 import org.elevenfifty.java301.beans.ProductImage;
+import org.elevenfifty.java301.beans.Smoothie;
+import org.elevenfifty.java301.beans.SmoothieImage;
 import org.elevenfifty.java301.repository.ProductImageRepository;
 import org.elevenfifty.java301.repository.ProductRepository;
+import org.elevenfifty.java301.repository.SmoothieImageRepository;
+import org.elevenfifty.java301.repository.SmoothieRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +32,10 @@ public class ProductController {
 	private ProductRepository proRepo;
 	@Autowired
 	private ProductImageRepository proImageRepo;
+	@Autowired
+	private SmoothieRepository smoothRepo;
+	@Autowired
+	private SmoothieImageRepository smoothImageRepo;
 	
 	@GetMapping(path = { "/home", "/", "" })
 	public String home(Model model) {
@@ -38,6 +46,7 @@ public class ProductController {
 	@GetMapping("/product/list")
 	public String productList(Model model) {
 		model.addAttribute("products", proRepo.findAll());
+		model.addAttribute("smoothies", smoothRepo.findAll());
 		return "product_list";
 	}
 	@GetMapping("/product/{id}")
@@ -54,72 +63,10 @@ public class ProductController {
 		return "product_detail";
 	}
 	
-	@PostMapping("/product/{id}/edit")
-	public String proEditSave(@ModelAttribute @Valid Product product, BindingResult result, Model model,
-			@RequestParam("file") MultipartFile file,
-			@RequestParam(name = "removeImage", defaultValue = "false", required = false) boolean removeImage) {
-
-		log.info("here");
-		if (result.hasErrors()) {
-			model.addAttribute("product", product);
-			//
-			return "product_add";
-		} else {
-			if (removeImage) {
-				// See if the user even has an user image
-				ProductImage image = proImageRepo.findByProductId(product.getId());
-				if (image != null) {
-					// Removes if it exists
-					proImageRepo.delete(image);
-					log.info("Image Removed" + product.getId());
-
-				}
-			}
-			// Check to see if there is an upload file
-			else if (file != null && !file.isEmpty()) {
-
-				try {
-					// Load the file in the proper format(Spring does this!)
-
-					// Load or create a UserImage
-					ProductImage image = proImageRepo.findByProductId(product.getId());
-
-					if (image == null) {
-						image = new ProductImage();
-						image.setProductId(product.getId());
-
-					}
-					image.setContentType(file.getContentType());
-					image.setImage(file.getBytes());
-
-					// Store in a Database
-					proImageRepo.save(image);
-				} catch (IOException e) {
-					log.error("Failed to upload file", e);
-				}
-			}
-			proRepo.save(product);
-			return "redirect:/product/" + product.getId();
-		}
-	}
 	
-	@GetMapping ("/product/add")
-	public String productAdd(Model model, Product product) {
-		model.addAttribute(product);
-		return "product_add";
-	}
-	
-	@PostMapping("/product/add")
-	public String productAddSave(@ModelAttribute @Valid Product product, Model model ) {
 
-		proRepo.save(product);
-		return "redirect:/product/" + product.getId();
-	}
-	@PostMapping("/product/list")
-	public String productDelete( Model model, @RequestParam(name = "productId") int productId) {
-		
-		proRepo.delete(proRepo.findOne(productId));
-		return "redirect:/product/list";
-	}
+
+	
+	
 }
 

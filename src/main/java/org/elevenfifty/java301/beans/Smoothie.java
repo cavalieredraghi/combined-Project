@@ -1,6 +1,7 @@
 package org.elevenfifty.java301.beans;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
@@ -13,8 +14,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "smoothies")
 public class Smoothie {
-	@Size(max = 50)
-	private int qty;
+	
 
 	@Size(max = 45)
 	private String name;
@@ -24,23 +24,9 @@ public class Smoothie {
 	private int id;
 
 	private BigDecimal price;
-	private String [] ing;
 
-	public String[] getIng() {
-		return ing;
-	}
 
-	public void setIng(String[] ing) {
-		this.ing = ing;
-	}
 
-	public int getQty() {
-		return qty;
-	}
-
-	public void setQty(int qty) {
-		this.qty = qty;
-	}
 
 	public String getName() {
 		return name;
@@ -71,10 +57,8 @@ public class Smoothie {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + Arrays.hashCode(ing);
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result + qty;
 		return result;
 	}
 
@@ -89,8 +73,6 @@ public class Smoothie {
 		Smoothie other = (Smoothie) obj;
 		if (id != other.id)
 			return false;
-		if (!Arrays.equals(ing, other.ing))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -100,8 +82,6 @@ public class Smoothie {
 			if (other.price != null)
 				return false;
 		} else if (!price.equals(other.price))
-			return false;
-		if (qty != other.qty)
 			return false;
 		return true;
 	}

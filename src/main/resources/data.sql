@@ -39,3 +39,14 @@ insert into java301.products (name, qty, price) values ('Spinach', 10, .8);
 insert into java301.products (name, qty, price) values ('Carrot', 10, .55);
 insert into java301.products (name, qty, price) values ('Beet', 10, 1);
 insert into java301.products (name, qty, price) values ('Tomato', 10, .8);
+
+
+insert into java301.smoothies (name, price) values('Banana Smoothie', 4.2 );
+insert into java301.smoothies (name, price) values('BananBerry Classic', 5.05);
+insert into java301.smoothies (name, price) values( 'Spiked Pineapple', 8.65);
+insert into java301.smoothies (name, price) values('Tropical Fusion', 5.95);
+insert into java301.smoothies (name, price) values('Indiana Special', 5.95);
+insert into java301.smoothies (name, price) values('Green Soup', 5.50);
+
+
+
