@@ -62,9 +62,8 @@ public class ProductController {
 
 		return "product_detail";
 	}
-	
-	
 
+	
 
 	
 	

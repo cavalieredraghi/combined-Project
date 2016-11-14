@@ -8,10 +8,10 @@
 </head>
 <body layout:fragment="content">
 	<h1>Which Smoothie do you want?</h1>
-	<form method="POST" th:object="${smoothie}" enctype="multipart/form-data">
+	<form method="POST" th:object="${order}" enctype="multipart/form-data">
 		<div class="form-group">
-			<label for="active">Smoothies</label> <select name="Smoothie">
-				<option th:text="${smoothie.name}" th:value="${smoothie.price}"></option>
+			<label for="active">Smoothies</label> <select th:field="*{smoothie}">
+				<option th:each ="s : ${smoothie}" th:value="${s.price}" th:text="#{${'s.name.'}}"></option>
 			</select>
 		</div>
 

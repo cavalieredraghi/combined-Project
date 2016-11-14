@@ -15,41 +15,24 @@ table, th, td {
 </head>
 <body layout:fragment="content">
 	<div class="row">
-		<h1>products</h1>
+		<h1>Orders</h1>
 		<a href="/" th:href="@{|/order/add|}"><input type="button"
 			value="Place Order" /></a>
 		<table>
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Price</th>
+					<th>OrderId</th>
+					<th>UserId</th>
+					<th>Product</th>
+					<th>Total</th>
+					<th>&nbsp;</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="smoothie : ${smoothies}">
-					<td th:text="${smoothie.id}"></td>
-					<td th:text="${smoothie.name}"></td>
-					<td th:text="${smoothie.price}"></td>
-				</tr>
-			</tbody>
-		</table>
-		<h2>ingredients</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Quantity</th>
-					<th>Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="product : ${products}">
-					<td th:text="${product.id}"></td>
-					<td th:text="${product.name}"></td>
-					<td th:text="${product.qty}"></td>
-					<td th:text="${product.price}"></td>
+				<tr th:each="order : ${orders}">
+					<td th:text="${order.id}"></td>
+					<td th:text="${order.user_id}"></td>
+					<td th:text="${order.price}"></td>
 				</tr>
 			</tbody>
 		</table>
