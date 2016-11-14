@@ -119,30 +119,38 @@ public class UserController {
 		}
 	}
 
-	@GetMapping ("/user/add")
+	@GetMapping("/user/add")
 	public String userAdd(Model model, User user) {
 		User u = new User();
 		model.addAttribute(user);
 		return "user_add";
 	}
-	
+
 	@PostMapping("/user/add")
-	public String userAddSave(@ModelAttribute @Valid User user, Model model ) {
+	public String userAddSave(@ModelAttribute @Valid User user, Model model) {
 
 		userRepo.save(user);
 		return "redirect:/user/" + user.getId();
 	}
-	@GetMapping ("/user/new")
+
+	@GetMapping("/user/new")
 	public String userNew(Model model, User user) {
 		User u = new User();
 		model.addAttribute(user);
 		return "user_new";
 	}
-	
+
 	@PostMapping("/user/new")
-	public String userNewSave(@ModelAttribute @Valid User user, Model model ) {
+	public String userNewSave(@ModelAttribute @Valid User user, Model model) {
 
 		userRepo.save(user);
 		return "redirect:/login";
+	}
+
+	@PostMapping("/user/list")
+	public String userDelete( Model model, @RequestParam(name = "userId") int userId) {
+		
+		userRepo.delete(userRepo.findOne(userId));
+		return "user_list";
 	}
 }

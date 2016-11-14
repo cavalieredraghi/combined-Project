@@ -7,19 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
-	<h1>login</h1><form th:action="@{/login}" method="post">
-        <div>
-            <label> User : </label>
-            <input type="text" name="username" />
-        </div>
-        <div>
-            <label> Password: </label>
-            <input type="password" name="password" />
-        </div>
-        <div>
-            <input type="submit" value="Sign In" />
-            <a href="/" th:href="@{|/user/new|}"><input type="button" value="Sign Up" /></a>
-        </div>
-    </form>
+	<h1>login</h1>
+	<p>for testing use otherwise feel free to create your own</p>
+	<p><b>User:</b> aholt@smoothie.com </p>
+	<p><b>Password:</b> password1337</p>
+	<form th:action="@{/login}" method="post">
+
+		<div>
+			<label> User : </label> <input type="text" name="username" />
+		</div>
+		<div>
+			<label> Password: </label> <input type="password" name="password" />
+		</div>
+		<div>
+			<input type="submit" value="Sign In" /> <a href="/"
+				th:href="@{|/user/new|}"><input type="button" value="Sign Up" /></a>
+		</div>
+	</form>
 </body>
 </html>
