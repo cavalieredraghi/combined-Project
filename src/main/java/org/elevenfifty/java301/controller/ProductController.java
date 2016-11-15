@@ -43,24 +43,12 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/list")
-	public String productList(Model model) {
+	public String ingredientList(Model model) {
 		model.addAttribute("products", proRepo.findAll());
 		model.addAttribute("smoothies", smoothRepo.findAll());
 		return "product_list";
 	}
-	@GetMapping("/product/{id}")
-	public String product(Model model, @PathVariable(name = "id") int id) {
-		model.addAttribute("id", id);
 
-		Product u = proRepo.findOne(id);
-
-		model.addAttribute("products", u);
-
-		ProductImage i = proImageRepo.findByProductId(id);
-		model.addAttribute("proImage", i);
-
-		return "product_detail";
-	}
 
 	
 

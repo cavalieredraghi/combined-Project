@@ -23,25 +23,25 @@ insert into java301.user_roles (user_id, role) values (select id from java301.us
 insert into java301.user_roles (user_id, role) values (select id from java301.users where email = 'aholt@smoothie.com', 'ADMIN');
 
 
-insert into java301.products (name, qty, price) values ('Orange', 10, .8);
-insert into java301.products (name, qty, price) values ('Banana', 10, .8);
-insert into java301.products (name, qty, price) values ('Apple', 10, .8);
+insert into java301.products (name, qty, price) values ('Orange', 10, .80);
+insert into java301.products (name, qty, price) values ('Banana', 10, .80);
+insert into java301.products (name, qty, price) values ('Apple', 10, .80);
 insert into java301.products (name, qty, price) values ('Pineapple', 10, .95);
-insert into java301.products (name, qty, price) values ('Peach', 10, .9);
-insert into java301.products (name, qty, price) values ('Milk', 30, 1.2);
-insert into java301.products (name, qty, price) values ('Ice', 30, 1.2);
+insert into java301.products (name, qty, price) values ('Peach', 10, .90);
+insert into java301.products (name, qty, price) values ('Milk', 30, 1.20);
+insert into java301.products (name, qty, price) values ('Ice', 30, 1.20);
 insert into java301.products (name, qty, price) values ('Strawberry', 10, .85);
 insert into java301.products (name, qty, price) values ('Avacado', 10, 1.15);
-insert into java301.products (name, qty, price) values ('Cucumber', 10, 1.1);
+insert into java301.products (name, qty, price) values ('Cucumber', 10, 1.10);
 insert into java301.products (name, qty, price) values ('Chicken Stock', 10, 1.75);
-insert into java301.products (name, qty, price) values ('Kale', 10, 1.2);
-insert into java301.products (name, qty, price) values ('Spinach', 10, .8);
+insert into java301.products (name, qty, price) values ('Kale', 10, 1.20);
+insert into java301.products (name, qty, price) values ('Spinach', 10, .80);
 insert into java301.products (name, qty, price) values ('Carrot', 10, .55);
-insert into java301.products (name, qty, price) values ('Beet', 10, 1);
-insert into java301.products (name, qty, price) values ('Tomato', 10, .8);
+insert into java301.products (name, qty, price) values ('Beet', 10, 1.00);
+insert into java301.products (name, qty, price) values ('Tomato', 10, .80);
 
 
-insert into java301.smoothies (name, price) values('Banana Smoothie', 4.2 );
+insert into java301.smoothies (name, price) values('Banana Smoothie', 4.20 );
 insert into java301.smoothies (name, price) values('BananBerry Classic', 5.05);
 insert into java301.smoothies (name, price) values( 'Spiked Pineapple', 8.65);
 insert into java301.smoothies (name, price) values('Tropical Fusion', 5.95);
