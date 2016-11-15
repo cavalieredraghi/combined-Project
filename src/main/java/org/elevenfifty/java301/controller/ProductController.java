@@ -27,7 +27,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ProductController {
-	private static final Logger log = LoggerFactory.getLogger(ProductController.class);
 	@Autowired
 	private ProductRepository proRepo;
 	@Autowired
@@ -42,14 +41,15 @@ public class ProductController {
 		return "home";
 	}
 	
+	//TODO something here is messing up the heroku app page for the product lists.
 	@GetMapping("/product/list")
 	public String ingredientList(Model model) {
-		model.addAttribute("products", proRepo.findAll());
+//		model.addAttribute("products", proRepo.findAll());
 		model.addAttribute("smoothies", smoothRepo.findAll());
 		return "product_list";
 	}
 
-
+//checking the errors it has either to do with the Product portion or something with SQL
 	
 
 	
