@@ -54,10 +54,10 @@ public class ProductController {
 
 		Product u = proRepo.findOne(id);
 
-		model.addAttribute("product", u);
+		model.addAttribute("products", u);
 
 		ProductImage i = proImageRepo.findByProductId(id);
-		model.addAttribute("userImage", i);
+		model.addAttribute("proImage", i);
 
 		return "product_detail";
 	}
