@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class OrderController {
@@ -36,6 +37,11 @@ public class OrderController {
 		orderRepo.save(order);
 		return "redirect:/order/list";
 	}
-	
+	@PostMapping("/order/list")
+	public String orderDelete( Model model, @RequestParam(name = "orderId") int orderId) {
+		
+		orderRepo.delete(orderRepo.findOne(orderId));
+		return "redirect:/order/list";
+	}
 
 }
