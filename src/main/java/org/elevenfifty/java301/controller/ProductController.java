@@ -39,7 +39,6 @@ public class ProductController {
 	
 	@GetMapping(path = { "/home", "/", "" })
 	public String home(Model model) {
-		model.addAttribute("products", proRepo.findAll());
 		return "home";
 	}
 	
