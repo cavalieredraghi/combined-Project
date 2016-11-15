@@ -32,6 +32,7 @@ table, th, td {
 				<tr th:each="order : ${orders}">
 					<td th:text="${order.id}"></td>
 					<td th:text="${order.user_id}"></td>
+					<td th:text="${order.smoothie}"></td>
 					<td th:text="${order.price}"></td>
 				</tr>
 			</tbody>
